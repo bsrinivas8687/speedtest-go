@@ -32,7 +32,7 @@ func (s *Server) DownloadTest(savingMode bool) error {
 	}
 	fTime := time.Now()
 	// 1.125MB for each request (750 * 750 * 2)
-	wuSpeed := 1.125 * 8 * 2 / fTime.Sub(sTime.Add(s.Latency)).Seconds()
+	wuSpeed := 1.125 * 8 * 2 / fTime.Sub(sTime).Seconds()
 
 	// Decide workload by warm up speed
 	workload := 0
@@ -91,7 +91,7 @@ func (s *Server) UploadTest(savingMode bool) error {
 	}
 	fTime := time.Now()
 	// 1.0 MB for each request
-	wuSpeed := 1.0 * 8 * 2 / fTime.Sub(sTime.Add(s.Latency)).Seconds()
+	wuSpeed := 1.0 * 8 * 2 / fTime.Sub(sTime).Seconds()
 
 	// Decide workload by warm up speed
 	workload := 0
